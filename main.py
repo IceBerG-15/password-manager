@@ -45,14 +45,14 @@ def add_entry():
         messagebox.showinfo(title='opps',message='Please fill the empty fields.')
     else:
         try:
-            with open('C:\\Python310\\codes\\projects\\password-manager\\entry.json', 'r') as f:
+            with open('entry.json', 'r') as f:
                 data=json.load(f)
         except FileNotFoundError:
-            with open('C:\\Python310\\codes\\projects\\password-manager\\entry.json', 'w') as f:
+            with open('entry.json', 'w') as f:
                 json.dump(new_data,f,indent=4)
         else:
             data.update(new_data)
-            with open('C:\\Python310\\codes\\projects\\password-manager\\entry.json', 'w') as f:
+            with open('entry.json', 'w') as f:
                 json.dump(data,f,indent=4)
         
         website_entry.delete(0,END)
@@ -63,7 +63,7 @@ def add_entry():
 def search_website():
     web=website_entry.get()
     try:
-        with open('C:\\Python310\\codes\\projects\\password-manager\\entry.json', 'r') as f:
+        with open('entry.json', 'r') as f:
             data=json.load(f)
     except FileNotFoundError:
         messagebox.showinfo(title='Error',message='no data file found')
@@ -84,7 +84,7 @@ window.config(padx=50,pady=50,bg='pink')
 '''---------------------------CANVAS------------------------------'''
 
 canvas=Canvas(width=200,height=200,highlightthickness=0,bg='pink')
-photo_img=PhotoImage(file='C:\Python310\codes\projects\password-manager\logo.png')
+photo_img=PhotoImage(file='logo.png')
 canvas.create_image(100,100,image=photo_img)
 canvas.grid(column=1,row=0)
 
